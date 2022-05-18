@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Please upload your sequence file - {% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-7 offset-lg-2 my-5">
+    <h3>Please fill details below to submit the analysis</h3>
+    <form method="POST" enctype="multipart/form-data"  action="{{ url_for('alpha.home_page') }}">
+
+      {{ form.hidden_tag() }}
+
+
+      <br>
+            {{ form.name(class="form-control", placeholder="Name") }}
+            <br>
+
+            {{ form.email(class="form-control", placeholder="Email Address") }}
+
+            <br>
+
+            {{ form.param_model.label}}
+
+            {{ form.param_model(class="form-control", placeholder="param_model") }}
+
+            <br>
+            {{ form.param_db.label}}
+
+            {{ form.param_db(class="form-control", placeholder="param_db") }}
+
+            <br>
+            {{ form.inputfile.label}}
+
+            {{ form.inputfile(class="form-control", placeholder="inputfile") }}
+
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br>
+
+   </form>
+
+
+
+  </div>
+</div>
+{% endblock %}

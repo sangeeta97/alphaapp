@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+  <h3> The file is uploaded sucessfully, you will receive mail once analysis is over, please note the link to download</h3>
+
+<p class="h7 pt-2 text-dark">Copy below the link address</p>
+  <a href="{{ url_for('alpha.download_page', uniquestr=uniquestr) }}">LINK address</a>
+
+
+</div>
+
+{% endblock %}

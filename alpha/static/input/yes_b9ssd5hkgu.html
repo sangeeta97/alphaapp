@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr">
+<head>
+
+<link type="image/x-icon" rel="shortcut icon" href="/gw/webaccess/202008210220/images/favicon.ico"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/gw/webaccess/202008210220/css/branding-min.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/gw/webaccess/202008210220/css/gwstyle-min.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/gw/webaccess/202008210220/css/images-min.css">
+<link rel="stylesheet" type="text/css" href="/gw/webaccess/202008210220/css/msgedit-min.css">
+<!--[if IE 9]><LINK REL="stylesheet" TYPE="text/css" HREF="/gw/webaccess/202008210220/css/ie9-min.css"><![endif]-->
+<style type="text/css">
+
+*
+{
+/*
+font-size: small;
+*/
+font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+}
+div.list,
+table.list th
+{
+background: #F6F6F6;
+color: #656869;
+font-weight: normal;
+font-size:13px;
+text-align:left;
+padding: 10px 0px;
+}
+table.list .selected td
+{
+background-color: #B5D5FF;
+color: HighlightText;
+}
+input.button
+{
+}
+div#toolbarbtns {
+background: ;
+padding-left: 10px;
+border-bottom: 1px solid #436B9E;
+padding-top: 2px;
+height: 28px;
+}
+div#toolbarbtns a {
+font-size: 85%;
+color: ;
+padding: 6px 3px;
+}
+div#toolbarbtns a:hover {
+padding: 5px 2px;
+}
+div#toolbarbtns a.depressed {
+padding: 5px 2px;
+background: url('/gw/webaccess/202008210220/images/btndepressed.png') repeat-x left top;
+border: 1px solid #2A4377;
+}
+td.send_field_label
+{
+padding-right: 7px;
+text-align: right;
+}
+tr.selected td
+{
+background-color: #B5D5FF;
+color: HighlightText;
+}
+div#toolbarbtns span {
+line-height: 2em;
+}
+.textAlignNormal
+{
+text-align: left;
+}
+.textAlignReverse
+{
+text-align: right;
+}
+.generalPadding
+{
+padding-left: 25px;
+padding-right: 25px;
+}
+.extraPadding
+{
+padding-left: 30px;
+padding-right: 30px;
+}
+.verticalPadding15
+{
+padding-top: 15px;
+padding-bottom: 15px;
+}</style>
+<script language="javascript">
+var blankSrc = "/gw/webaccess/202008210220/images/blank.gif";
+var webaccFrame = "true";
+var homeURL = "\/gw\/webacc";
+var inc_homeURL = "\/gw\/webacc";
+var inc_Host = "localhost:18080";
+var userContext = "d79d2b6be1d47ba5446cea831d68a8370d7a3a0dd7942a0a46ff51b2755bc2a";
+var inc_provider = "SOAP";
+var userId = "";
+var inc_userName = "";
+var inc_errGenericMsg = "Your request could not be processed due to a connection failure with the server.\nContact your Administrator if the problem persists after re-login.";
+var inc_defaultCalendarView = "Week";
+var inc_use24HourClock = false;
+var inc_securedLogoutURL = "/gw/webacc?User.context=d79d2b6be1d47ba5446cea831d68a8370d7a3a0dd7942a0a46ff51b2755bc2a&action=User.Logout&SSOAware=0&merge=closewin";
+var inc_debugEnabled = false;
+//var inc_pollReqsTimeout = 10; // Update every 10 minutes.
+var inc_tomcatVersion = "9";
+var inc_nameCompletionEnabled = true; //used in sendnc.js
+var inc_lowBandwidth = false;
+var inc_documentDir = "ltr";
+var inc_PopUpBlockerWarning = "It appears that your browser is blocking WebAccess pop up windows. \nTo assure full WebAccess functionality, please set your pop up blocker to allow the following address: \n";
+var inc_templatesImagesUrl = "/gw/webaccess/202008210220/images/";
+var inc_lastFirstNameOrder = false;
+var inc_HtmlComposeSupported = true;
+var inc_HtmlComposeEnabled = false;
+var inc_showCheckboxes = false;
+var inc_enableGridOptimization = false;
+var inc_stubbedItemWarning = "This message has been stubbed out and can only be opened with GroupWise Client on Windows. Please contact your administrator for further details.";
+var inc_createTaskHint = "Type here to create a task...";
+var inc_loadingMsg = "Loading...";
+var inc_replyRequestedWarning = "WARNING- A reply is requested for this item. Delete before replying?";
+var inc_duplicatedSignatureNameMsg = "Signature name already exists.";
+var inc_invalidSignatureNameMsg = "Invalid signature name.";
+var inc_areConflicts = "Accepting this item will cause a conflict.  Accept Appointment?";
+var inc_submitComposeMessage = "Processing...";
+var inc_allowFixBodyWidth = false;
+var inc_frequentContacts = { name: "Frequent Contacts",
+id: "",
+isSelectedForNC: true,
+isFreqContacts: true,
+isReadOnly: false,
+type: 7 };
+var inc_gwAddressBook = { name: "GroupWise Address Book",
+id: "",
+isSelectedForNC: true,
+isFreqContacts: false,
+isReadOnly: true,
+type: 1 };
+//Address selector view
+var bAddressSelectorView = false;
+var bProxySelectorView = false;
+//Contacts tab is displayed
+var bcontactsTab = false;
+// First day of the week (1=Sun, 2=Mon, ... 7=Sat)
+var inc_firstDayOfWorkWeek = "1";
+//Date strings
+var inc_dateStrings = new Object();
+inc_dateStrings.dayNamesShort = [
+"Sun",
+"Mon",
+"Tue",
+"Wed",
+"Thu",
+"Fri",
+"Sat"
+];
+inc_dateStrings.dayNames = [
+"Sunday",
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday"
+];
+inc_dateStrings.monthNamesShort = [
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"May",
+"Jun",
+"Jul",
+"Aug",
+"Sep",
+"Oct",
+"Nov",
+"Dec"
+];
+inc_dateStrings.monthNames = [
+"January",
+"February",
+"March",
+"April",
+"May",
+"June",
+"July",
+"August",
+"September",
+"October",
+"November",
+"December"
+];
+inc_dateStrings.am = "AM";
+inc_dateStrings.pm = "PM";
+// Date format for date picker input text fields
+var inc_datepickerDateFormat = 'MM/dd/yyyy';
+// Setting from webacc.cfg to disable VIEW on specific attacments
+var inc_cfgViewExcludeDocExtensions = 'rar,avi,svg';
+</script>
+<link rel="stylesheet" type="text/css" href="/gw/webaccess/202008210220/js/yui/container/assets/container.css">
+<link rel="stylesheet" type="text/css" href="/gw/webaccess/202008210220/js/yui/menu/assets/menu.css">
+<link rel="stylesheet" type="text/css" href="/gw/webaccess/202008210220/js/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="/gw/webaccess/202008210220/js/jquery-ui/jquery-ui.theme.min.css">
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/gwwa-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/inc-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/webacc-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/connection/connection-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/dom/dom-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/event/event-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript">
+// Override jQuery shortcut so we don't conflict with our own version of '$'
+var $J = jQuery.noConflict();
+var inc_isPollingEnabled = false;
+gwwa.browser =
+{
+"name" : "MOZILLA",
+"os" : "Linux",
+"mjrVer" : "5",
+"mnrVer" : "0",
+"flavor" : "SAFARI",
+"flvMjrVer" : "537",
+"flvMnrVer" : "36"
+};
+gwwa.user =
+{
+"id" : "",
+"name" : "",
+"lang" : "en",
+"isWebAccessUser" : true,
+"access" :
+{
+"write" :
+{
+"generic" : false,
+"mail" : false,
+"appointment" : false,
+"note" : false,
+"task" : false,
+"phone" : false
+},
+"proxy" : false
+},
+"calpub" :
+{
+"calName" : ""
+},
+"publish" :
+{
+"canPublishCal" : false,
+"isPublishCalLocked" : false,
+"canPublsihFB" : false,
+"isPublishFBLocked" : false,
+"freeBusyURL" : ""
+},
+"calViewSettings" :
+{
+"workdays": "2,3,4,5,6",
+"removeFromInboxOnAccept": "0",
+"appointmentIncludeSelf": "1",
+"startOfWorkday": "08:00",
+"endOfWorkday": "17:00",
+"hilightDaysOfWeek": "1,7",
+"showWeekNumber": "0",
+"firstDayOfWorkWeek": 1
+},
+"actionSettings" :
+{
+"advanceOnDelete" : false,
+"newScreenOnSend" : false,
+"newChecklistItemType" : false
+}
+};
+var bIsIE9 = isIE9();
+var bIsIE10 = isIE10();
+var bIsIE9OrAbove = isIE9OrAbove();
+</script>
+<meta name="robots" content="noindex, nofollow">
+<meta name="loginID" content="WEBACC_LOGIN_PAGE">
+<TITLE>GroupWise</TITLE>
+
+<style type="text/css">
+.yui-panel{
+border: 5px solid rgba(0, 0, 0, 0.6);
+background-color: #FFF;
+}
+.yui-panel .hd, .ui-widget-header{
+background-color: #E0E0E0;
+padding: 10px;
+border: 0px;
+font-size: 17px;
+color: #135C8F;
+xfont-weight: lighter;
+}
+.yui-panel .bd, .ui-dialog-content.ui-widget-content, .ui-widget-content, .yui-panel .bd label{
+color: #505354;
+font-size: 12px;
+font-weight: bold;
+text-align: center;
+background: #F6F6F6;
+}
+div.empty-bd .bd{
+padding: 0px;
+height: 1px;
+background-color: #E0E0E0;
+}
+.yui-dialog .ft, .simple-dialog .ft{
+text-align: right; /* Reverse text alignment */
+background-color: #F6F6F6;
+}
+.button-group button, .ui-dialog-buttonset button {
+font-size: 15px;
+color: #135C8F;
+background: #F6F6F6;
+font-weight: light;
+border-width: 1px;
+border-color: #F6F6F6;
+margin-left: 5px;
+margin-right: 5px;
+}
+.button-group button:hover, .button-group button.hover, .ui-dialog-buttonset button:hover {
+color: #646568;
+background: #FFFFFF;
+border-width: 1px;
+border-color: #E0E0E0;
+}
+.button-group button.default {
+xfont-weight: lighter;
+}
+.mask {
+background: #8E8E8E;
+}
+</style><script type="text/javascript" src="/gw/webaccess/202008210220/js/polling-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/yui/container/container-min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="/gw/webaccess/202008210220/css/mobile/mobile-min.css" title="mobile.css" charset="utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="/gw/webaccess/202008210220/css/mobile/images-min.css" charset="utf-8" />
+<style type="text/css">
+body, html
+{
+background-color: #C4C4C4;
+}
+span.branding-error
+{
+color: red;
+}
+.yui-panel
+{
+border: 0px solid #000;
+background-color: #FFF;
+}
+.yui-panel .hd
+{
+background: #e3e3e3;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbfbfb', endColorstr='#e3e3e3'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e3e3e3)); /* for webkit browsers */
+background: -moz-linear-gradient(top, #fbfbfb, #e3e3e3 ); /* for firefox 3.6+ */
+color: #000;
+font-size: large;
+padding: 7px;
+}
+.yui-panel .container-close
+{
+background-image: url("/gw/webaccess/202008210220/images/x.png");
+height: 18px;
+width: 18px;
+top: 7px;
+right: 350px;
+}
+.highlight
+{
+color: #5691A6;
+}
+.highlightBrowser
+{
+color: #5691A6;
+}
+img.loginBranding1
+{
+background-image: url( '..\/..\/logo-b.png' );
+}
+</style>
+<script type="text/javascript" src="/gw/webaccess/202008210220/js/login-min.js" charset="utf-8"></script>
+<script type="text/javascript">
+var str_SettingsClosed = "Options »";
+var str_SettingsOpen = "Options «";
+var dlgBrowserUnsuppored = null;
+var inc_widthDlgInPx = 375;
+var inc_widthDlg1InPx = 540;
+var inc_paddingDlgInPx = 15;
+var inc_autoCompleteEnabled = true;
+/********************************************
+* If we ever detect that the login window has
+* loaded in the workspace window, then we will
+* reload the login page in the full window
+********************************************/
+function reloadInFullWindow()
+{
+if( window.name == "workspace" )
+{
+window.parent.location.href = homeURL;
+}
+}
+function showWarning(text, timeout)
+{
+var $login = jQuery("#idLogin");
+var $warning = $login.find(".warning");
+if(!$warning.length)
+{
+$login.append("<div class='warning'></div>");
+$warning = $login.find(".warning");
+}
+$warning.text(text);
+// default to 5 seconds
+timeout = timeout || 5000;
+if(timeout > 0)
+{
+setTimeout(function(){ $warning.slideUp(); }, timeout);
+}
+$warning.slideDown();
+}
+/********************************************
+* Initialize some Javascript code...
+********************************************/
+function init(event)
+{
+reloadInFullWindow();
+gwwa.mlogin.init();
+gwwa.mlogin.removeFocus();
+if ( gwwa.mlogin.isInIE7Mode() )
+{
+gwwa.mlogin.showCompatibilityViewDialog();
+}
+else if ( !gwwa.mlogin.isBrowserSupported() )
+{
+gwwa.mlogin.showBrowserUnsupportedDialog();
+}
+else
+{
+gwwa.mlogin.showForm();
+gwwa.mlogin.setFocus();
+}
+// Put error handling in here after we have finished "modifying" the
+// screen via readLoginSettings. This is basically done in place
+// of including error.inc
+var errorId = parseInt( "" );
+if( isNaN( errorId ) )
+{
+showWarning( 'Invalid or missing cookie(s). Your administrator requires that cookies be used to secure your session. Please contact your administrator if you need further assistance.' );
+}
+else
+{
+showWarning( '[' + errorId.toString(16).toUpperCase() + '] Invalid or missing cookie(s). Your administrator requires that cookies be used to secure your session. Please contact your administrator if you need further assistance.' );
+}
+//Checking if webaccess is inside of a frame
+detectParentFrame();
+}
+function redirectLogin()
+{
+window.location.href = "";
+}
+function redirectLoginEx()
+{
+gwwa.mlogin.autoRedirectUnsupported();
+window.setTimeout( redirectLogin, 5000 );
+}
+window.onload = init;
+</script>
+</head>
+<body class="gray_bg_5" onresize="gwwa.mlogin.updatePanelPosition();">
+<div id="idBGFiller" class="bgFiller gray_bg_5"></div>
+<!-- Login Form -->
+<form name="loginForm" method="post" action="/gw/webacc" class="gray_bg_5" style="visibility: hidden">
+<input type="hidden" name="User.context" value="d79d2b6be1d47ba5446cea831d68a8370d7a3a0dd7942a0a46ff51b2755bc2a">
+<input type="hidden" name="error" value="login">
+<input type="hidden" name="merge" value="webaccx">
+<input type="hidden" name="action" value="User.Login">
+<input type="hidden" id="UserInterface" name="User.interface" value="css">
+<input type="hidden" id="WorkstationDSTStartDate" name="Timezone.Workstation.dstStartDate">
+<input type="hidden" id="WorkstationDSTEndDate" name="Timezone.Workstation.dstEndDate">
+<input type="hidden" id="WorkstationOffsetAvailable" name="Timezone.Workstation.offsetAvailable" value="0">
+<input type="hidden" id="WorkstationGMTOffset" name="Timezone.Workstation.gmtOffset" value="0">
+<input type="hidden" id="WorkstationHasDaylight" name="Timezone.Workstation.HasDaylight" value="0">
+<input type="hidden" id="WorkstationIsDaylight" name="Timezone.Workstation.IsDaylight" value="0">
+<input type="hidden" id="WorkstationStdtz" name="Timezone.Workstation.stdOffset">
+<input type="hidden" id="WorkstationDsttz" name="Timezone.Workstation.dstOffset">
+<div id="idLogin" class="loginRootContainer" style="width: 350px;">
+<div class="loginInnercontainer blue_bg_primary">
+<div class="loginLogoContainer posRightRelative bottomPadding10">
+<img src="/gw/webaccess/202008210220/images/dotzero.png" class="novellLogo" width="1" height="1" />
+<img src="/gw/webaccess/202008210220/images/dotzero.png" class="loginBranding1 productLogo" width="1" height="1" />
+</div>
+<div class="loginSection">
+<p class="loginLabel">
+<img id="imgUserid" src="/gw/webaccess/202008210220/images/username-user-icon.png" class="webkit-img-hack" width="15" height="17" />
+<input name="User.id" id="username" tabindex="1" class="mfLoginTextboxes webkitbrowser" type="text" placeholder="Username" value=""  autocorrect="off" autocapitalize="off" maxlength=64 />
+<img id="imgPwd" src="/gw/webaccess/202008210220/images/password-lock-icon.png" class="webkit-img-hack" width="12" height="17" />
+<input name="User.password" id="password" placeholder="Password" tabindex="2" class="mfLoginTextboxes webkitbrowser" type="password"  autocorrect="off" autocapitalize="off" maxlength=64 />
+<span><input id="idRememberMe" style="margin-top: 10px;" type="checkbox" name="Remember.me" value="true" onchange="gwwa.mlogin.saveTimeoutCookie(this);" />Remember Me</span>
+</p>
+<div class="textAlignReverse_ltr">
+<input type="submit" tabindex="3" value="Sign in"
+class="loginButton submitButton safariButton" name="submit" />
+</div>
+</div>
+<div class="loginSection bottomPadding10">
+<a href="#" target="_blank" class="help" onclick="popout( 'https://short.boku.ac.at/it-hotline', 'helpdesk', 250, 600 ); return false;">Can't log in?</a>
+<!-- 862420: Default to English help for the English-language variations -->
+<a href="/gw/webaccess/202008210220/help/browserui/en/starting_webaccess.html" target="_blank" class="helpdesk">Help</a>
+</div>
+<div class="loginSection bottomPadding10">
+<span class="copyright">
+&copy; Copyright 2020 Micro Focus or one of its affiliates.
+</span>
+<span id="settingsBtn" class="settingsCog" onclick="return gwwa.mlogin.toggleSettingsButton();">
+<img src="/gw/webaccess/202008210220/images/settings-gear-grey.png" class="imgSettings" width="20" height="20" />
+<img src="/gw/webaccess/202008210220/images/gear-down-arrow.png" class="imgDownArrow" width="9" height="6" />
+</span>
+</div>
+<div class="loginSection bottomPadding10">
+<div id="optionsBox" class="hidden">
+<p id="idLangOption" class="loginLabel">
+<span>Language:</span>
+<br />
+<select id="idLangSelect" class="gray_bg_9" tabindex="6" onchange='gwwa.mlogin.handleLangChange(); return false;' Name="User.lang">
+<option value="en">English</option>
+<option value="en_AU">English (Australia)</option>
+<option value="en_CA">English (Canada)</option>
+<option value="en_NZ">English (New Zealand)</option>
+<option value="en_GB">English (United Kingdom)</option>
+<option value="en_ZA">English (South Africa)</option>
+<option value="nl">Nederlands</option>
+<option value="fr">Fran&ccedil;ais</option>
+<option value="de">Deutsch</option>
+<option value="hu">Magyar</option>
+<option value="it">Italiano</option>
+<option value="pt">Portugu&ecirc;s-Brasil</option>
+<option value="es">Espa&ntilde;ol</option>
+<option value="cs">Čeština</option>
+<option value="da">Dansk</option>
+<option value="fi">Suomi</option>
+<option value="no">Norsk</option>
+<option value="pl">Polski</option>
+<option value="ru">Русский</option>
+<option value="sv">Svenska</option>
+<option value="tr">T&uuml;rk&ccedil;e</option>
+<option value="bg">Български</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="zh_CN">中文(简体)</option>
+<option value="zh_TW">中文(繁體)</option>
+</select>
+</p>
+</div>
+</div>
+</div>
+</div>
+</form>
+<div id="idDlgBrowserUnsupported" style="width:375px; display:none;">
+<div id="idCaptionDlg" class="hd">
+MOZILLA 5 is not supported
+</div>
+<div id="idDlg" style="padding:15px;">
+<div style="padding: 8px">
+<table cellpadding=3>
+<tr>
+<td>
+<div style="font-weight: bold;">Please use <a href='http://www.mozilla.com'><span class='highlightBrowser'>Mozilla Firefox</span></a>, <a href='http://www.google.com/chrome'><span class='highlightBrowser'>Google Chrome</span></a>, <a href='http://www.apple.com/safari/download/'><span class='highlightBrowser'>Apple Safari</span></a>, or <a href='http://windows.microsoft.com'><span class='highlightBrowser'>Internet Explorer 8 or newer</span></a> to access GroupWise WebAccess. </div>
+</td>
+</tr>
+<tr id="idRowMSIE">
+<td style="padding-top:10px;"><a href="javascript:gwwa.mlogin.installChromeFrame()"><span class="highlight">Use Google Chrome Frame in Internet Explorer</span></a></td>
+</tr>
+<tr>
+<td style="padding-top:10px;"><a href="javascript:gwwa.mlogin.goToBasicInterface()"><span class="highlight">Use WebAccess basic interface.</span></a></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="idDlgCompatibilityView" style="width:540px; display:none;">
+<div id="idCaptionDlg1" class="hd">
+Compatibility View detected
+</div>
+<div id="idDlg1" style="padding:15px;">
+<div class="highlight" style="font-size: 20px; margin-bottom: 10px;">
+Internet Explorer currently is running in Compatibility View.
+</div>
+<div style="padding: 8px">
+<table cellpadding=3>
+<tr>
+<td>Compatibility View is not supported by GroupWise WebAccess.</td>
+</tr>
+<tr>
+<td>To turn off Compatibility View, click Tools, then click Compatibility View Settings. In the "Websites you've added" box, select the GroupWise WebAccess site, then click Remove.</td>
+</tr>
+<tr>
+<td style="padding-top:10px;"><a href="javascript:gwwa.mlogin.goToBasicInterface()"><span class="highlight" style="font-size: 11px;">Use WebAccess basic interface.</span></a></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="idDlgAutoRedirect" style="width:540px; display:none;">
+<div id="idCaptionDlg2" class="hd">
+Unsupported Browser Version/Mode
+</div>
+<div id="idDlg2" style="padding:15px;">
+<div style="padding: 8px">
+This browser version is not supported and you are being redirected to a compatible legacy GroupWise WebAccess system.
+</div>
+</div>
+</div>
+</body>
+</html>
